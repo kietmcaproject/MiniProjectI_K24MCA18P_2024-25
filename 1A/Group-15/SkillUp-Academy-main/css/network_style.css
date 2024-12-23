@@ -1,0 +1,39 @@
+.error {
+    color: red;
+    font-size: 16px;
+  }
+
+  
+  #network-status-popup {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    background-color: #f44336; /* Red for offline */
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 1000;
+  }
+  #universal-popup {
+    display: block;
+    position: fixed;
+    top: 20px;
+    font-weight: 900;
+    padding: 15px;
+    align-items: center;
+    justify-content: center;
+    color: #5296d6;
+    border-radius: 5px;
+    font-size: 25px;
+  }
+  #network-status-popup.show {
+    display: block;
+  }
+  #universal-popup {
+    display: block;
+  }
+
+
+  

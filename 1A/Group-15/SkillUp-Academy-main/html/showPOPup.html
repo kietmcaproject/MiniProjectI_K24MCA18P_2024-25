@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Center Auto Close Popup Example</title>
+    <style>
+        .popup {
+            position: fixed;
+            top: 20px;
+            /* Adjust the distance from the top */
+            left: 50%;
+            /* Center horizontally */
+            transform: translateX(-50%);
+            /* Offset by half its width */
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Semi-transparent background */
+            color: white;
+            /* Text color */
+            padding: 10px 20px;
+            /* Padding */
+            border-radius: 5px;
+            /* Rounded corners */
+            z-index: 1000;
+            /* Ensure it appears above other elements */
+            transition: opacity 0.5s ease;
+            /* Smooth transition for fade out */
+            text-align: center;
+            /* Center the text */
+            display: none;
+            /* Hide by default */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="autoClosePopup" class="popup">
+        <span id="popupMessage"></span>
+    </div>
+
+    <button onclick="showAutoClosePopup('Image uploaded successfully!', 3000)">Show Popup</button>
+
+
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Confirm Dialog</title>
+    <style>
+        .custom-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .custom-modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="customConfirm" class="custom-modal" style="display:none;">
+        <div class="custom-modal-content">
+            <p id="confirmMessage">Are you sure?</p>
+            <button id="confirmYes">Yes</button>
+            <button id="confirmNo">No</button>
+        </div>
+    </div>
+
+    <button onclick="initiateConfirm()">Click me for confirmation</button>
+
+    <script>
+        function showCustomConfirm(message) {
+            const confirmMessage = document.getElementById("confirmMessage");
+            confirmMessage.textContent = message; // Set the custom message
+            const modal = document.getElementById("customConfirm");
+            modal.style.display = "flex"; // Show the modal
+
+            return new Promise((resolve) => {
+                document.getElementById("confirmYes").onclick = function () {
+                    modal.style.display = "none"; // Hide modal
+                    resolve(true); // Resolve the promise with true
+                };
+
+                document.getElementById("confirmNo").onclick = function () {
+                    modal.style.display = "none"; // Hide modal
+                    resolve(false); // Resolve the promise with false
+                };
+            });
+        }
+
+        function initiateConfirm() {
+            showCustomConfirm("Do you want to continue?").then((result) => {
+                if (result) {
+                    alert("You confirmed!");
+                    // Proceed with action
+                } else {
+                    alert("You cancelled!");
+                    // Handle cancellation
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>

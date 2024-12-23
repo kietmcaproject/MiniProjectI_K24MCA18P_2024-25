@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Skill Up Academy</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/loader.css">
+    <link rel="icon" type="image/x-icon" href="/images/logo.png">
+
+    <style>
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            width: 300px;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .popup-content button {
+            padding: 10px 15px;
+            margin: 10px 5px;
+            cursor: pointer;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="preloader"></div>
+
+    <header>
+        <div class="container">
+            <a href="/html/index.html" class="main_head">
+                <h1>Skill Up Academy</h1>
+            </a>
+        </div>
+    </header>
+
+    <section id="courses">
+        <div class="container">
+            <h2 id="course_herohead">Our Courses</h2>
+            <div class="course-list">
+                <div>
+                    <div class="course-item">
+                        <a href="https://www.codewithharry.com/videos/web-development-in-hindi-1/" target="_blank" class="course-link">
+                            <h3 class="course_topic">Web Development</h3>
+                        </a>
+                        <p>Learn HTML, CSS, JavaScript, and become a full-stack developer.</p>
+                    </div>
+                    <div class="course-item">
+                        <a href="https://www.youtube.com/watch?v=YUrbUOcZcB8&ab_channel=NPTEL-NOCIITM" target="_blank" class="course-link">
+                            <h3 class="course_topic">Data Science</h3>
+                        </a>
+                        <p>Master Python, R, and data analytics to make data-driven decisions.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="course-item">
+                        <a href="https://skillshop.exceedlms.com/student/catalog/list?category_ids=7836-grow-with-google" target="_blank" class="course-link">
+                            <h3 class="course_topic">Digital Marketing</h3>
+                        </a>
+                        <p>Develop skills in SEO, social media, and content marketing.</p>
+                    </div>
+                    <div class="course-item">
+                        <a href="https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/" target="_blank" class="course-link">
+                            <h3 class="course_topic">Data Structures and Algorithms</h3>
+                        </a>
+                        <p>Learn algorithms and data structures to improve programming skills.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="popup" class="popup-overlay">
+        <div class="popup-content">
+            <h2>Login First</h2>
+            <p>You need to log in to access this course.</p>
+            <button onclick="redirectToLogin()">Login</button>
+            <button onclick="goHome()">Home</button>
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+        </div>
+    </div>
+    <section>
+        <div class="quiz_col course-link">
+            
+                <h2>"Challenge Yourself – Learn Through Quizzes!"
+                </h2>
+           
+            <button type="button"> <a href="/Quiz Module/select.html" target="_blank">Attempt Quiz</a></button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Skill Up Academy. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/course_auth.js" type="module"></script>
+    <script src="/js/loader.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Popup</title>
+  <link rel="stylesheet" href="/css/pop_up_course.css">
+</head>
+<body>
+
+  <!-- Course item -->
+  <button class="course-item" onclick="showPopup()">Course Item</button>
+
+  <!-- Popup dialog -->
+  <div id="popup" class="popup-overlay">
+    <div class="popup-content">
+      <h2>First Login</h2>
+      <p>You need to log in to access this course.</p>
+      <button onclick="redirectToLogin()">Login</button>
+      <button onclick="goHome()">Home</button>
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+    </div>
+  </div>
+
+  <script >// Show the popup
+    function showPopup() {
+      document.getElementById("popup").style.display = "flex";
+    }
+    
+    // Close the popup
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+    
+    // Redirect to login page
+    function redirectToLogin() {
+      window.location.href = "login.html";  // Update this to your actual login page URL
+    }
+    
+    // Redirect to home page
+    function goHome() {
+      window.location.href = "index.html";  // Update this to your actual home page URL
+    }
+    </script>
+</body>
+</html>

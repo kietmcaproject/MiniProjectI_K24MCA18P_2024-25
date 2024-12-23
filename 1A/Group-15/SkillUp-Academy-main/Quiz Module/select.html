@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Section</title>
+    <link rel="stylesheet" href="select.css">
+</head>
+<body>
+    <div class="app">
+        <h1>Welcome to the Quiz Section of Skillup Academy</h1><br>
+        <div class="Quiz">
+        <h2>Select the Course Quiz :</h2><br>
+        
+        <select name="links" size="1" onchange="window.location.href=this.value;">
+            <option selected disabled="">--Select--</option>
+            <option value="quizstart.html">Web development Quiz</option>
+            <option value="digitalfirst.html">Digital Marketing Quiz</option>
+            <option value="dsafirst.html">DSA Quiz</option>
+            <option value="datafirst.html">Data Science Quiz</option>
+        </select><br>
+            
+        </div>
+        <button id="next-btn">Next</button>
+      </div>  
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,107 @@
+/* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+
+
+#academy-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#message {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+} */
+
+
+/* Modal background overlay */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Modal content box styling */
+.modal-content {
+    background: linear-gradient(135deg, rgba(255, 95, 109, 0.7), rgba(255, 195, 113, 0.7));
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+    animation: pulseGlow 5s infinite ease-in-out; /* Soft glow effect */
+}
+
+/* Modern button styles */
+.button-container button {
+    margin: 10px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    background-color: #ff5f6d;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.button-container button:hover {
+    background-color: #ff7373;
+    transform: translateY(-3px);
+}
+
+/* Gradient animation for the modal background */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Soft glow effect animation */
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 95, 109, 0.5), 0 0 40px rgba(255, 195, 113, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(255, 95, 109, 0.8), 0 0 60px rgba(255, 195, 113, 0.8);
+    }
+}
+
+/* Background animation */
+#logoutModal {
+    background: linear-gradient(-45deg, #1472ff, #13c354, #18af43, black);
+    background-size: 200% 200%;
+    animation: gradientShift 12s ease infinite;
+}

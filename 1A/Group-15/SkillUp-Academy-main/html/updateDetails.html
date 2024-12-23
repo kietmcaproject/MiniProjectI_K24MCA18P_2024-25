@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Profile</title>
+  <link rel="stylesheet" href="/css/registration_style.css">
+  <link rel="stylesheet" href="/css/network_style.css">
+  <link rel="stylesheet" href="/css/showPopUp_style.css">
+  <link rel="stylesheet" href="/css/updatedetails.css">
+  <link rel="stylesheet" href="/css/loader.css">
+  <link rel="icon" type="image/x-icon" href="/images/logo.png">
+
+
+</head>
+
+<body>
+  <div id="preloader"></div>
+  <div id="network-status-popup" class="popup">Please connect to a network.</div>
+  <div id="autoClosePopup" class="popup" style="display: none;">
+    <span id="popupMessage"></span>
+  </div>
+
+  <div class="form-container" id="update-profile-form">
+    <a href="/html/index.html"> <img src="/images/logo.png" alt="logo"></a>
+    <hr>
+    <div>
+      <span>Upload Image</span>
+      <img id="displayImage" src="/images/user-profile-icon.jpg">
+      <input type="file" accept="image/*" id="imageInput" onchange="uploadImage(event)">
+      <button id="toggleDetailsBtn">More Updates</button>
+    </div>
+
+    <!-- Progress Text and Progress Bar -->
+    <div id="progressText">Uploading... 0%</div>
+    <progress id="progressBar" value="0" max="100"></progress>
+
+    <form id="updateForm" style="display:none">
+      <label for="update-name">Name:</label>
+      <input type="text" id="update-name" required>
+
+      <label for="update-addr">Address:</label>
+      <textarea id="update-addr" required></textarea>
+
+      <label for="update-mob">Contact No:</label>
+      <input type="number" id="update-mob" required>
+
+      <label for="update-course">Choose Your Course:</label>
+      <select id="update-course" name="course" required>
+        <option selected disabled>--Select--</option>
+        <option value="Web Development">Web Development</option>
+        <option value="Data Structure & Aglorithm">Data Structure & Aglorithm</option>
+        <option value="Data Science">Data Science</option>
+        <option value="Digital Marketing">Digital Marketing</option>
+        <!-- <option value="AI">AI</option> -->
+      </select>
+
+      <button type="submit" id="saveChanges">Save Changes</button>
+    </form>
+  </div>
+
+  <!-- Import JavaScript -->
+  <script type="module" src="/js/network_script.js" defer></script>
+  <script type="module" src="/js/firebase_initalization.js" defer></script>
+  <script type="module" src="/js/universal_showMsgFn.js" defer></script>
+  <script type="module" src="/js/updateDetails.js" defer></script>
+  <script type="module" src="/js/uploadImage.js" defer></script>
+  <script type="module" src="/js/showPopUp.js" defer></script>
+
+  <script>
+    // Toggle additional details
+    document.getElementById("toggleDetailsBtn").addEventListener("click", () => {
+      const updateForm = document.getElementById("updateForm");
+      const isVisible = updateForm.style.display === "block";
+      updateForm.style.display = isVisible ? "none" : "block";
+      document.getElementById("toggleDetailsBtn").textContent = isVisible ? "More Updates" : "Less Updates";
+    });
+  </script>
+  <script src="/js/loader.js"></script>
+
+
+
+
+
+
+</body>
+
+</html>

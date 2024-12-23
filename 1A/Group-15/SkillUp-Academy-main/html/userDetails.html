@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <link rel="stylesheet" href="/css/network_style.css">
+    <link rel="stylesheet" href="/css/userDetails.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/loader.css">
+    <link rel="icon" type="image/x-icon" href="/images/logo.png">
+
+</head>
+
+
+<body>
+    <div id="preloader"></div>
+    <div class="whl">
+        <div class="User-det">
+            <div id="user-head">
+                <h2 class="tracking-in-contract-bck ">User Details</h2>
+                <div id="network-status-popup" class="popup">Please connect to a network.</div>
+                <!-- <button onclick="fetchAndDisplayAllImages()">Show Image</button> -->
+            </div>
+        </div>
+        <div id="User-det_id">
+            <div class="main">
+                <div id="imageContainer"></div>
+
+                <div id="userDetail"></div>
+                <div class="btn-home ">
+                    <a href="/html/index.html"><button><i class="fa-solid fa-house-user"></i></button></a>
+                </div>
+                <script type="module" src="/js/network_script.js"></script>
+                <script type="module" src="/js/userDetails.js"></script>
+            </div>
+        </div>
+    </div>
+    <script src="/js/loader.js"></script>
+
+
+</body>
+
+</html>

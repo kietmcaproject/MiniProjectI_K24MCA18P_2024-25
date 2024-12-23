@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form - Skill Up Academy</title>
+  <link rel="stylesheet" href="/css/network_style.css">
+  <link rel="stylesheet" href="/css/registration.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/loader.css">
+  <link rel="icon" type="image/x-icon" href="/images/logo.png">
+
+</head>
+
+<body>
+  <div id="preloader"></div>
+  <div class="video-background">
+    <video autoplay loop muted playsinline>
+      <source src="/images/3130284-uhd_3840_2160_30fps.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+
+  <!-- Network Status Popup -->
+  <div id="network-status-popup" class="popup">Please connect to a network.</div>
+
+  <!-- Universal Popup for Showing Messages -->
+  <!-- <span id="universal-popup" class="popup"></span> -->
+  <div id="autoClosePopup" class="popup" style="display: none;">
+    <span id="popupMessage"></span>
+  </div>
+
+  <div class="form-container" id="signup-form">
+    <div class="logo"><a href="/html/index.html"> <img src="/images/logo.png" alt="logo"></a></div>
+    <h2>Registration Form</h2>
+
+    <!-- Signup Form -->
+    <form id="signupForm">
+      <label for="signup-name">Name:</label>
+      <input type="text" id="signup-name" required>
+
+      <label for="signup-addr">Address:</label>
+      <textarea id="signup-addr" required></textarea>
+
+      <label for="signup-mob">Contact No:</label>
+      <input type="number" id="signup-mob" required>
+
+      <!-- Course Selection Dropdown -->
+      <div id="dropdown-container">
+        <label for="signup-course">Choose Your Course:</label>
+        <select id="signup-course" name="course" required>
+          <option selected disabled>---Select---</option>
+          <option value="Web Development">Web Development</option>
+          <option value="Data Structures & Algo">Data Structures & Algo</option>
+          <option value="Data Science">Data Science</option>
+          <option value="Digital Marketing">Digital Marketing</option>
+          <!-- <option value="AI">AI</option> -->
+        </select>
+      </div>
+
+
+
+
+      <label for="signup-email">Email:</label>
+      <input type="email" id="signup-email" required>
+
+      <!-- Password Fields with Tooltip -->
+      <label for="signup-password">Password:</label>
+      <div class="tooltip">
+        <div id="ques">
+          <div class="icon">
+            <input type="password" id="signup-password" required>
+            <span class="question-icon" id="question-icon"><i class="fa-regular fa-circle-question"></i></span>
+          </div>
+          <span class="tooltiptext" id="password-criteria">
+            Password must be:
+            <ul>
+              <li>At least 6 characters long</li>
+              <li>Contain at least one uppercase letter</li>
+              <li>Contain at least one lowercase letter</li>
+              <li>Contain at least one number</li>
+              <li>Contain at least one special character</li>
+            </ul>
+          </span>
+        </div>
+      </div>
+
+      <label for="signup-password1">Confirm Your Password:</label>
+      <input type="password" id="signup-password1" required>
+
+      <button id="signupfrm" type="submit">Sign Up</button>
+      <div id="note">
+        <p><b>Note: First signup than upload image</b></p>
+      </div><br>
+
+    </form>
+
+    <!-- Image Upload Section -->
+
+    <section id="img_upload">
+      <div id="imageUploadSection">
+        <div>
+          <span>Upload Image</span><br>
+          <div id="up_sec">
+            <img id="displayImage" src="/images/user-profile-icon.jpg">
+            <input type="file" accept="image/*" id="imageInput" onchange="uploadImage(event)">
+          </div>
+        </div>
+
+        <!-- Progress Text and Progress Bar -->
+        <div id="progressText">Uploading... 0%</div>
+        <progress id="progressBar" value="0" max="100"></progress>
+    </section>
+
+    <div class="reg_login">
+      <p> <a href="/html/login.html"><button>Login <i class="fa-solid fa-right-to-bracket"></i></button><br></a>Already
+        have an account?</p>
+    </div>
+
+    <!-- JS Imports -->
+    <script type="module" src="/js/network_script.js" defer></script>
+    <script type="module" src="/js/firebase_initalization.js" defer></script>
+    <!-- <script type="module" src="/js/universal_showMsgFn.js" defer></script> -->
+    <script type="module" src="/js/showPopUp.js" defer></script>
+    <script type="module" src="/js/signup.js" defer></script>
+    <script type="module" src="/js/registration.js" defer></script>
+    <script type="module" src="/js/question_mrk_hover.js" defer></script>
+    <script type="module" src="/js/uploadImage.js" defer></script>
+    <script>
+      var loader = document.getElementById("preloader");
+      window.addEventListener("load", function () {
+        loader.style.display = "none";
+      })
+    </script>
+
+  </div>
+
+
+</body>
+
+</html>

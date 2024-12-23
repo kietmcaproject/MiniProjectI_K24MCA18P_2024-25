@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.User-det{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 55px 55px 55px 55px;
+
+    background-color: black;
+    color: white;
+    height: 100vh;
+    width: 35vw;
+
+}
+h2{
+    font-size: 3.5em;
+}
+
+#User-det_id{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 5px 55px 50px;
+    height: 100vh;
+    width: 85vw;
+    font-size: 1.5em;
+    background-color: rgb(101, 99, 99);
+    color: white;
+
+
+}
+.whl{
+    display: flex;
+    width: 100vw;
+}
+
+.main{
+    width: 65vw;    
+}
+button{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+
+button:active{
+    background-color: rgb(203, 10, 10);
+    transition: 0.15s ease-in;
+}
+
+
+
+.tracking-in-contract-bck {
+	animation: tracking-in-contract-bck 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+ @keyframes tracking-in-contract-bck {
+    0% {
+      letter-spacing: 1em;
+      transform: translateZ(400px);
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateZ(0);
+      opacity: 1;
+    }
+  }
+  

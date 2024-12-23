@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login- Skill Up Academy</title>
+  <link rel="stylesheet" href="/css/login_style.css">
+  <link rel="stylesheet" href="/css/showPopUp_style.css">
+  <link rel="stylesheet" href="/css/network_style.css">
+  <link rel="stylesheet" href="/css/loader.css">
+  <link rel="icon" type="image/x-icon" href="/images/logo.png">
+
+  <style>
+.loader {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  position: absolute;
+  top: 50vh;
+  left: 48vw;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+  </style>
+
+  
+
+</head>
+
+<body>
+  <span id="buttonLoader" class="loader" style="display: none;"></span>
+  <div id="preloader"></div>
+
+  <!-- Login Form -->
+  <div id="network-status-popup" class="popup">Please connect to a network.</div>
+  <!-- <span id="universal-popup" class="popup"></span> -->
+  <div id="autoClosePopup" class="popup" style="display: none;">
+    <span id="popupMessage"></span>
+  </div>
+
+  <!-- <p id="errorMessage" style="color: red; display: none;"></p> -->
+
+  <div class="form-container" id="login-form">
+    <a href="/html/index.html"><img src="/images/logo.png" alt="logo"></a>
+
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="login-email">Email:</label>
+      <input type="email" id="login-email"  required  >
+      <label for="login-password">Password:</label>
+      <input type="password" id="login-password" required>
+      <div id="login_btn">
+        <div><button type="submit">Login</button></div>
+        <div><a href="/html/reset_password.html">
+          <button type="button">Reset Password</button>          
+        </a></div>
+        <!-- <div id="preloader"></div><span class="loader"></span> -->
+      </div>
+    </form>
+
+    <p>Don't have an account? <a href="/html/Registration.html"><button>Register Here</button></a></p>
+
+    <button id="googlelogin" type="submit">Login From Google</button>
+
+    <script type="module" src="/js/network_script.js" defer></script>
+    <script type="module" src="/js/login_for_course.js" defer></script>
+    <!-- <script type="module" src="/js/universal_showMsgFn.js" defer></script> -->
+    <script type="module" src="/js/showPopUp.js" defer></script>
+    <script type="module" src="/js/firebase_initalization.js" defer></script>
+    <script type="module" src="/js/loginwith_google.js" defer></script>
+    <script type="module" src="/js/registration.js" defer></script>
+    <script src="/js/loader.js"></script>
+    <script>
+document.getElementById("loginForm").addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent default form submission
+
+  const errorMessage = document.getElementById("errorMessage");
+  const email = document.getElementById("login-email").value.trim();
+  const password = document.getElementById("login-password").value.trim();
+
+  if (!email || !password) {
+    errorMessage.textContent = "Please fill in all fields.";
+    errorMessage.style.display = "block";
+    stopLoader();
+    return;
+  }
+
+  startLoader();
+
+  setTimeout(() => {
+    if (email !== "test@example.com" || password !== "password123") {  // Mock incorrect credentials
+      errorMessage.textContent = "Invalid email or password.";
+      errorMessage.style.display = "block";
+      stopLoader();
+    } else {
+      window.location.href = "/html/dashboard.html"; // example redirect on successful login
+    }
+  }, 2000); // simulate loading time
+});
+
+function startLoader() {
+  document.getElementById("buttonLoader").style.display = "inline-block";
+  document.getElementById("buttonText").style.display = "none";
+}
+
+function stopLoader() {
+  document.getElementById("buttonLoader").style.display = "none";
+  document.getElementById("buttonText").style.display = "inline";
+}
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentorship - Skill Up Academy</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/mentorship.css">
+    <link rel="stylesheet" href="/css/network_style.css">
+    <link rel="stylesheet" href="/css/loader.css">
+    <link rel="icon" type="image/x-icon" href="/images/logo.png">
+
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+</head>
+
+<body>
+    <div id="preloader"></div>
+
+    <header>
+        <div class="container">
+            <h1>Skill Up Academy</h1>
+            <div id="network-status-popup" class="popup">Please connect to a network.</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="mentorship.html">Mentorship</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="mentorship">
+        <div class="container">
+            <h2>Mentorship</h2>
+            <p>Get personalized guidance and feedback from experienced industry professionals who are here to help you
+                succeed in your career journey.</p>
+        </div>
+    </section>
+
+    <section id="allUserDetailShow">
+        <button id="delete-btn" style="display:none;">Delete Selected Users</button>
+        <table id="table" style="display:none;">
+            <thead>
+                <tr>
+                    <th>Select</th> <!-- Checkbox column -->
+                    <th>Sr.No.</th>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Course</th>
+                    <th>Contact No</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Rows will be dynamically populated here -->
+            </tbody>
+        </table>
+    </section>
+
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Skill Up Academy. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+    <script type="module" src="/js/mentorship.js" defer></script>
+    <script type="module" src="/js/network_script.js" defer></script>
+    <script src="/js/loader.js"></script>
+
+</body>
+
+</html>
