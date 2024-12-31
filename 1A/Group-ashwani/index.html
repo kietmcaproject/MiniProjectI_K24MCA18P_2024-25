@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localguide - Discover Local Shops</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="/script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="/images/logohome.jpg" alt="Localguide Logo" height="100px" width="150px">
+            
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" href="#categories">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li> -->
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <!-- <li class="nav-item">
+                    <a href="login.html" class="btn btn-success btn-lg mx-2">Logout</a>
+                </li> -->
+                <!-- <li class="nav-item">
+                    <a href="login.html" class="btn btn-success btn-lg mx-2">Login</a>
+                </li> -->
+                <li class="nav-item">
+                    <a href="business.html" class="btn btn-success btn-lg">Register For Business</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero text-center py-5">
+        <!-- <img src="/images/homehero.jpg" class="d-block w-100" alt="background"> -->
+        <div class="container">
+            <h1 id="herotxt" class="display-4 animated fadeInUp">Discover Local Shops with Ease</h1>
+            <p class="lead animated fadeIn delay-1s">Find the best local shops near you, explore products and prices, and connect directly with shop owners!</p>
+            <form class="form-inline justify-content-center mt-4 animated fadeIn delay-2s">
+                <!-- <input type="email" class="form-control form-control-lg mr-2" placeholder="Enter your email"> -->
+                <button type="button" class="btn btn-primary btn-lg" onclick="scrollToForm()">Explore</button>
+            </form>
+        </div>
+    </section>
+    
+
+    <!-- Categories Section -->
+    <section class="categories py-5 bg-light" id="categories">
+        <div class="container">
+            <h2 class="text-center mb-4">Explore Categories</h2>
+            <div class="row">
+                <!-- Medical -->
+
+                
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        
+                        <div class="category-box text-center p-4 shadow-sm">
+                            <i class="fas fa-briefcase-medical fa-3x text-primary mb-3"></i>
+                            <a href="./category/medicaal/medicallist.html"><h4 class="mb-2">Medical</h4></a>
+                            
+                            <p>Find pharmacies and medical supply shops near you.</p>
+                        </div>
+                    </div>
+
+                
+                
+                <!-- Grocery -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="category-box text-center p-4 shadow-sm">
+                        <i class="fas fa-shopping-basket fa-3x text-success mb-3"></i>
+                        <a href="./category/grocery/grocerylist.html"><h4 class="mb-2">Grocery</h4></a>
+                        
+                        <p>Shop for everyday essentials in local grocery stores.</p>
+                    </div>
+                </div>
+                <!-- Electronics -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="category-box text-center p-4 shadow-sm">
+                        <i class="fas fa-tv fa-3x text-warning mb-3"></i>
+                        <a href="./category/electronic/electronicsimage/electronics.html"><h4 class="mb-2">Electronics</h4></a>
+                        
+                        <p>Discover electronics and gadgets at great prices.</p>
+                    </div>
+                </div>
+                <!-- Hardware -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="category-box text-center p-4 shadow-sm">
+                        <i class="fas fa-tools fa-3x text-danger mb-3"></i>
+                        <a href="./category/hardware/hardwarelist.html"><h4 class="mb-2">Hardware</h4></a>
+                        
+                        <p>Find tools and supplies for all your projects.</p>
+                    </div>
+                </div>
+                <!-- Salon -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="category-box text-center p-4 shadow-sm">
+                        <i class="fas fa-cut fa-3x text-info mb-3"></i>
+                        
+                        <a href="./category/salon/salonlist.html"><h4 class="mb-2">Salon</h4></a>
+                        <p>Explore the best salons for grooming and beauty.</p>
+                    </div>
+                </div>
+                <!-- Gym -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="category-box text-center p-4 shadow-sm">
+                        <i class="fas fa-dumbbell fa-3x text-secondary mb-3"></i>
+                        <a href="./category/gym/gymimage/gymlistt.html"><h4 class="mb-2">Gym</h4></a>
+                        <p>Find fitness centers and gyms in your area.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us py-5 bg-white" id="why-choose-us">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Content -->
+                <div class="col-lg-5 text-lg-start text-center mb-4 mb-lg-0">
+                    <div class="why-content">
+                        <div class="icon-box mb-3">
+                            <i class="fas fa-box fa-4x text-primary"></i>
+                        </div>
+                        <h2>Why Choose Us?</h2>
+                        <p>LocalGuide offers a seamless experience in connecting users with the best local shops, providing complete product details, reviews, and pricing in one place.</p>
+                        <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Right Features -->
+                <div class="col-lg-7">
+                    <div class="row">
+                        <!-- Feature 1 -->
+                        <div class="col-md-6 mb-4">
+                            <div class="feature-box text-center p-4 shadow-sm">
+                                <i class="fas fa-thumbs-up fa-2x text-primary mb-3"></i>
+                                <h5 class="mb-2">Easy to Use</h5>
+                                <p class="mb-0">A user-friendly interface to quickly find local shops and products.</p>
+                            </div>
+                        </div>
+                        <!-- Feature 2 -->
+                        <div class="col-md-6 mb-4">
+                            <div class="feature-box text-center p-4 shadow-sm">
+                                <i class="fas fa-chart-line fa-2x text-success mb-3"></i>
+                                <h5 class="mb-2">Grow Your Revenue</h5>
+                                <p class="mb-0">Shopkeepers can list their stores to reach more customers.</p>
+                            </div>
+                        </div>
+                        <!-- Feature 3 -->
+                        <div class="col-md-6 mb-4">
+                            <div class="feature-box text-center p-4 shadow-sm">
+                                <i class="fas fa-shield-alt fa-2x text-danger mb-3"></i>
+                                <h5 class="mb-2">Data Privacy</h5>
+                                <p class="mb-0">Your data is securely managed to protect your privacy.</p>
+                            </div>
+                        </div>
+                        <!-- Feature 4 -->
+                        <div class="col-md-6 mb-4">
+                            <div class="feature-box text-center p-4 shadow-sm">
+                                <i class="fas fa-chart-bar fa-2x text-warning mb-3"></i>
+                                <h5 class="mb-2">Analytics & Insights</h5>
+                                <p class="mb-0">Shopkeepers can analyze trends to make informed decisions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials py-5 bg-light" id="testimonials">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>What Our Users Say</h2>
+                <p>Here's what people say about their experience with LocalGuide.</p>
+            </div>
+    
+            <!-- Testimonial Carousel -->
+            <div class="testimonial-carousel-wrapper">
+                <div class="testimonial-carousel">
+                    <div class="testimonial-box">
+                        <div class="rating mb-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star-half-alt text-warning"></i>
+                        </div>
+                        <p>"LocalGuide has been a game-changer for finding shops near me. Highly recommended!"</p>
+                        <h5>- Anup</h5>
+                    </div>
+                    <div class="testimonial-box">
+                        <div class="rating mb-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p>"The ability to compare prices and reviews before visiting a shop is amazing!"</p>
+                        <h5>- Brijesh</h5>
+                    </div>
+                    <div class="testimonial-box">
+                        <div class="rating mb-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star-half-alt text-warning"></i>
+                            <i class="far fa-star text-warning"></i>
+                        </div>
+                        <p>"I love how easy it is to contact shopkeepers directly through LocalGuide."</p>
+                        <h5>- Anand</h5>
+                    </div>
+                    <div class="testimonial-box">
+                        <div class="rating mb-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star-half-alt text-warning"></i>
+                        </div>
+                        <p>"Great platform to explore local businesses. A must-have for every shopper."</p>
+                        <h5>- Abhishek</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Logo and Description -->
+                <div class="footer-logo">
+                    <img src="/images/logohome.jpg" alt="Logo" class="logo">
+                    <!-- <p>Lorem ipsum dolor amet consectetur adipisicing elit sed eiusmod tempor incididunt ut labore dolore.</p>
+                    <ul>
+                        <li><strong>Add:</strong> 70-80 Upper St Norwich NR2</li>
+                        <li><strong>Call:</strong> +01 123 4567 890</li>
+                        <li><strong>Email:</strong> info@localguide.com</li>
+                    </ul> -->
+                </div>
+
+                <!-- Links -->
+                <div class="footer-links">
+                    <h4>Online Platform</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Courses</a></li>
+                        <li><a href="#">Instructor</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Purchase Guide</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">News & Articles</a></li>
+                        <li><a href="#">FAQ's</a></li>
+                        <li><a href="#">Sign In/Registration</a></li>
+                    </ul>
+                </div>
+
+                <!-- Subscription -->
+                <div class="footer-subscription">
+                    <h4>Contacts</h4>
+                    <p>Enter your email address to register to our newsletter subscription</p>
+                    <form class="subscription-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit">Subscribe <i class="fas fa-arrow-right"></i></button>
+                    </form>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>Copyright © 2024 All Rights Reserved by LocalGuide</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

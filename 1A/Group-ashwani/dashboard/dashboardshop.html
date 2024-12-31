@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Owner Dashboard | LocalGuide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #faf9f9;
+        }
+        header {
+            background: linear-gradient(to right, #89b0ae, #555b6e);
+            padding: 10px 20px;
+        }
+        header .navbar-brand {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        header .nav-link {
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+        header .nav-link:hover {
+            color: #ffd6ba;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            color: #555b6e;
+            margin-bottom: 20px;
+        }
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .btn-primary {
+            background-color: #555b6e;
+            border-color: #555b6e;
+        }
+        .btn-primary:hover {
+            background-color: #89b0ae;
+        }
+        footer {
+            background: #555b6e;
+            color: #fff;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">LocalGuide</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Shops</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Notifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="container my-5">
+
+    <!-- Shops Section -->
+    <section class="mb-5">
+        <h2 class="section-title">Your Shops</h2>
+        <div id="shopsContainer" class="row g-4">
+            <!-- Dynamic shops will be added here -->
+        </div>
+        <button class="btn btn-primary mt-3" id="addShopButton">Add New Shop</button>
+    </section>
+
+    <!-- Items Section -->
+    <section class="mb-5">
+        <h2 class="section-title">Manage Items</h2>
+        <table class="table table-hover" id="itemsTable">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic items will be added here -->
+            </tbody>
+        </table>
+        <button class="btn btn-primary mt-3" id="addItemButton">Add New Item</button>
+    </section>
+
+    <!-- Notifications Section -->
+    <section class="mb-5">
+        <h2 class="section-title">Notifications</h2>
+        <ul id="notificationsLis" class="list-group">
+            <!-- Dynamic notifications will be added here -->
+        </ul>
+    </section>
+
+    <!-- Shop Location Section -->
+    <section class="mb-5">
+        <h2 class="section-title">Add Shop Location</h2>
+        <form id="locationForm">
+            <div class="mb-3">
+                <label for="shopName" class="form-label">Shop Name</label>
+                <input type="text" id="shopName" class="form-control" placeholder="Enter shop name">
+            </div>
+            <div class="mb-3">
+                <label for="shopLocation" class="form-label">Shop Location</label>
+                <input type="text" id="shopLocation" class="form-control" placeholder="Enter shop location">
+            </div>
+            <button type="submit" class="btn btn-primary">Add Location</button>
+        </form>
+        <ul id="locationsList" class="list-group mt-4">
+            <!-- Dynamic locations will be added here -->
+        </ul>
+    </section>
+</main>
+
+<footer class="text-center">
+    <p>&copy; 2024 LocalGuide. All Rights Reserved.</p>
+</footer>
+
+<script>
+    // Shops Management
+    const shopsContainer = document.getElementById('shopsContainer');
+    const addShopButton = document.getElementById('addShopButton');
+
+    addShopButton.addEventListener('click', () => {
+        const newShop = document.createElement('div');
+        newShop.className = 'col-md-4';
+        newShop.innerHTML = `
+            <div class="card p-3">
+                <h5 class="card-title">New Shop</h5>
+                <p class="card-text">Location: Unknown</p>
+                <button class="btn btn-primary w-100 mb-2">Edit</button>
+                <button class="btn btn-secondary w-100">View Details</button>
+            </div>
+        `;
+        shopsContainer.appendChild(newShop);
+    });
+
+    // Items Management
+    const itemsTable = document.getElementById('itemsTable').querySelector('tbody');
+    const addItemButton = document.getElementById('addItemButton');
+
+    addItemButton.addEventListener('click', () => {
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>New Item</td>
+            <td>0</td>
+            <td>
+                <button class="btn btn-primary btn-sm">Edit</button>
+                <button class="btn btn-danger btn-sm">Delete</button>
+            </td>
+        `;
+        itemsTable.appendChild(newRow);
+    });
+
+    // Notifications Management
+    const notificationsList = document.getElementById('notificationsLis');
+
+    function addNotification(user, message) {
+        const notification = document.createElement('li');
+        notification.className = 'list-group-item';
+        notification.innerHTML = `${user}: ${message} <button class="btn btn-danger btn-sm float-end">Delete</button>`;
+        notificationsList.appendChild(notification);
+    }
+
+    // addNotification('Anand', 'Need 5 boxes of painkillers.');
+    // addNotification('Anup', 'Do you have hand sanitizers?');
+    // addNotification('Bishop', 'Do you have paracetamol?');
+
+    notificationsList.addEventListener('click', (e) => {
+        if (e.target.tagName === 'BUTTON') {
+            e.target.parentElement.remove();
+        }
+    });
+
+    // Shop Locations Management
+    const locationForm = document.getElementById('locationForm');
+    const locationsList = document.getElementById('locationsList');
+
+    locationForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const shopName = document.getElementById('shopName').value;
+        const shopLocation = document.getElementById('shopLocation').value;
+
+        if (shopName && shopLocation) {
+            const locationItem = document.createElement('li');
+            locationItem.className = 'list-group-item';
+            locationItem.textContent = `${shopName}: ${shopLocation}`;
+            locationsList.appendChild(locationItem);
+            locationForm.reset();
+        }
+    });
+</script>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    import { getDatabase, ref, onValue, remove } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyAkDoKasc-QaA5tUwDiUQ6qHDZNDdHmbRI",
+        authDomain: "fir-30f8b.firebaseapp.com",
+        databaseURL: "https://fir-30f8b-default-rtdb.firebaseio.com",
+        projectId: "fir-30f8b",
+        storageBucket: "fir-30f8b.appspot.com",
+        messagingSenderId: "541118137726",
+        appId: "1:541118137726:web:349f6448401b820c2b9f2f"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    // Notifications Management
+    const notificationsLis = document.getElementById('notificationsLis');
+    const notificationsRef = ref(database, 'notifications');
+
+    // Fetch notifications from Firebase
+    onValue(notificationsRef, (snapshot) => {
+        notificationsList.innerHTML = ''; // Clear existing notifications
+        if (snapshot.exists()) {
+            const data = snapshot.val();
+            Object.keys(data).forEach((key) => {
+                const { name, number, query, timestamp } = data[key];
+                addNotification(name, number, query, timestamp); // Add each notification to the list
+            });
+        } else {
+            console.log('No notifications found.');
+        }
+    });
+
+    function addNotification(user, number, message, timestamp, notificationId) {
+        const notification = document.createElement('li');
+        notification.className = 'list-group-item';
+        notification.innerHTML = `
+            Name: ${user} <br> Mobile number: ${number} <br>"${message}" <br> ${timestamp}
+            <button class="btn btn-danger btn-sm float-end delete-notification" data-user="${user}" data-message="${message}">Delete</button>
+        `;
+        notificationsList.appendChild(notification);
+    }
+
+
+
+    // Delete notification from Firebase
+    notificationsList.addEventListener('click', (e) => {
+        if (e.target.classList.contains('delete-notification')) {
+            const notificationId = e.target.getAttribute('notifications'); // Get the unique Firebase key
+            if (notificationId) {
+                const notificationRef = ref(database, `notifications/${notificationId}`);
+                remove(notificationRef)
+                    .then(() => {
+                        console.log(`Notification with ID ${notificationId} deleted.`);
+                        e.target.parentElement.remove(); // Remove from UI
+                    })
+                    .catch((error) => {
+                        console.error("Error deleting notification:", error);
+                    });
+            }
+        }
+    });
+
+
+    // // Optionally add delete functionality
+    // notificationsList.addEventListener('click', (e) => {
+    //     if (e.target.classList.contains('delete-notification')) {
+    //         const notificationItem = e.target.parentElement;
+    //         notificationItem.remove(); // Remove from UI
+    //         alert("Notification deleted.");
+    //     }
+    // });
+</script>
+
+</body>
+</html>
