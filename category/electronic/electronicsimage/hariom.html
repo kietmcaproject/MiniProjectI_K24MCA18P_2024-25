@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Details - LocalGuide</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <script src="/shopinfo.js"></script>
+    <style>
+        /* Global Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header Section */
+        .navbar {
+            background: linear-gradient(90deg, #aed6e734, #95bee2);
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f3722c;
+        }
+
+        .navbar .btn {
+            margin-left: 10px;
+            color: #fff;
+            font-weight: 500;
+            background-color: #f3722c;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar .btn:hover {
+            background-color: #f8961e;
+        }
+
+        /* Navigation Bar Section */
+        .navigation-bar {
+            background: linear-gradient(90deg, #2d424a34, #4187b3);
+            padding: 10px 0;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navigation-bar ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .navigation-bar ul li a {
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .navigation-bar ul li a:hover {
+            color: #f94144;
+        }
+
+     /* Carousel Section Styling */
+    .shop-carousel-section {
+        /* background: linear-gradient(to bottom, #f9c74f, #f9844a); Light gradient background */
+
+        background: linear-gradient(90deg, #aed6e734, #4380b5);
+        
+            
+        padding: 30px 0;
+        margin-bottom: 40px;
+        animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .carousel-inner img {
+        max-height: 400px;
+        object-fit: cover; /* Adjust image to fit container */
+    }
+
+    .carousel {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+    }
+
+    @media (max-width: 768px) {
+        .carousel-inner img {
+            max-height: 300px;
+        }
+    }
+
+
+        /* Section Styling */
+    .shop-details-section {
+        /* background-color: #f9c74f; Section background from palette */
+        background: radial-gradient( #aed6e734, #226bac);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 50px 0;
+        animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .shop-details, .product-list, .notification-box {
+        background-color: #ffffff;
+        border: 1px solid #90be6d;
+        border-radius: 8px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .shop-details:hover, .product-list:hover, .notification-box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Heading Styling */
+    .text-primary {
+        color: #f3722c !important;
+    }
+
+    /* List Styling */
+    .list-group-item {
+        border: none;
+        font-weight: 500;
+    }
+
+    /* Notification Box Styling */
+    .notification-box {
+        animation: slideInFromRight 1.5s ease-in-out;
+    }
+
+    @keyframes slideInFromRight {
+        from {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .shop-details-section {
+            padding: 20px 0;
+        }
+        .shop-details, .notification-box {
+            margin-bottom: 20px;
+        }
+    }
+
+    /* Reviews & Ratings and Location Section */
+    .reviews-location-section {
+        padding: 40px 0;
+        background-color: #f8f9fa;
+    }
+
+    .reviews-box, .location-box, .address-box, .social-media-box {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .reviews-box:hover, .location-box:hover, .address-box:hover, .social-media-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        color: #f3722c;
+        margin-bottom: 20px;
+    }
+
+    .section-subtitle {
+        font-size: 1.3rem;
+        color: #f8961e;
+        margin-bottom: 15px;
+    }
+
+    .map-container {
+        overflow: hidden;
+        border-radius: 8px;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 15px;
+    }
+
+    .social-icon {
+        display: inline-block;
+        font-size: 1.5rem;
+        color: #f3722c;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-icon:hover {
+        color: #f94144;
+        transform: scale(1.2);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .reviews-box, .location-box, .address-box, .social-media-box {
+            margin-bottom: 20px;
+        }
+    }
+
+    /* Footer Section */
+    .footer-section {
+        /* background: linear-gradient(to right, #f8961e, #f3722c); */
+        background: linear-gradient(90deg, #277da1, #4d908e);
+        color: white;
+        padding: 40px 0;
+        position: relative;
+    }
+
+    .footer-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #ffffff;
+        position: relative;
+    }
+
+    .footer-title::after {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 2px;
+        background: #f9c74f;
+        margin-top: 5px;
+    }
+
+    .footer-text {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: #ffffff;
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+
+    .footer-links li a {
+        color: #f9f9f9;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+    }
+
+    .footer-links li a:hover {
+        color: #f9c74f;
+        text-decoration: underline;
+    }
+
+    .footer-divider {
+        border-color: rgba(255, 255, 255, 0.3);
+        margin: 20px 0;
+    }
+
+    .footer-bottom-text {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .social-icons {
+        margin-top: 15px;
+        display: flex;
+        gap: 15px;
+    }
+
+    .social-icon {
+        font-size: 1.5rem;
+        color: #ffffff;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .social-icon:hover {
+        transform: scale(1.2);
+        color: #f9c74f;
+    }
+
+    /* Animations */
+    .footer-section {
+        animation: fadeInUp 1s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive Footer */
+    @media (max-width: 768px) {
+        .footer-section {
+            padding: 30px 20px;
+        }
+
+        .social-icons {
+            justify-content: center;
+        }
+    }
+
+
+    </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="#">LocalGuide</a>
+        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" href="#">Categories</a></li> -->
+                <!-- <li class="nav-item"><a class="nav-link" href="#">Contact</a></li> -->
+                <li class="nav-item"><a class="nav-link" href="/contact.html">About</a></li>
+            </ul>
+            <!-- <button class="btn">Login</button>
+            <button class="btn">Sign Up</button> -->
+        </div>
+    </div>
+</nav>
+
+<!-- Navigation Bar -->
+<div class="navigation-bar">
+    <ul>
+        <li><a href="/category/medicaal/medicallist.html">Medical</a></li>
+        <li><a href="/category/gym/gymimage/gymlistt.html">Gym</a></li>
+        <li><a href="/category/grocery/grocerylist.html">Grocery</a></li>
+        <li><a href="/category/salon/salonlist.html">Salon</a></li>
+        <li><a href="/category/electronic/electronicsimage/electronics.html">Electronics</a></li>
+        <li><a href="/category/hardware/hardwarelist.html">Hardware</a></li>
+    </ul>
+</div>
+
+    <!-- Image Carousel Section -->
+    <section class="shop-carousel-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div id="shopCarousel" class="carousel slide shadow rounded" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="./hari.jpg" class="d-block w-100 rounded" alt="Shop Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./hari.jpg" class="d-block w-100 rounded" alt="Shop Image 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./hari.jpg" class="d-block w-100 rounded" alt="Shop Image 3">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#shopCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#shopCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Shop Details and Notification Section -->
+    <section class="shop-details-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Column: Shop Details & Product List -->
+                <div class="col-lg-6">
+                    <!-- Shop Details -->
+                    <div class="shop-details mb-4 p-4 rounded shadow">
+                        <h2 class="mb-3 text-primary">Hariom Electronics - Muradnagar</h2>
+                        <p class="text-muted">
+                            Welcome to <strong>Hariom Electronics - Muradnagar</strong>, your trusted place , All electronics appliances available.
+                            Owned by <strong>karan sharma</strong>, the shop is located at <strong>240 MAIN RAILWAY STATION ROAD, Muradnagar, Uttar Pradesh 201206</strong>.
+                        </p>
+                    </div>
+
+                    <!-- Product List Box -->
+                    <div class="product-list p-4 rounded shadow">
+                        <h3 class="mb-3 text-primary">Available Products</h3>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Hp Laptop
+                                <span class="badge bg-success">25000- 85000 Rupees</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Mouse
+                                <span class="badge bg-success">1200 Rupees</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Keyboard
+                                <span class="badge bg-success">1600 Rupees</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                CCTV
+                                <span class="badge bg-success">6000 Rupees</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right Column: Notification Box -->
+                <div class="col-lg-6">
+                    <div class="notification-box p-4 rounded shadow">
+                        <h3 class="mb-4 text-primary">Send Notification</h3>
+                        <form id="notificationForm">
+                            <div class="mb-3">
+                                <label for="userName" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="user" placeholder="Enter your name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="userNumber" class="form-label">Mobile Number</label>
+                                <input type="number" class="form-control" id="number" placeholder="Enter your number" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="userQuery" class="form-label">Query</label>
+                                <textarea class="form-control" id="query" rows="3" placeholder="Write your query here" required></textarea>
+                            </div>
+                            <button id="submit" type="submit" class="btn btn-primary w-100">Send Notification</button>
+                        </form>
+                        <p id="successMessage" class="text-success" style="display: none;">Notification sent successfully!</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews & Ratings and Location Section -->
+    <section class="reviews-location-section">
+        <div class="container">
+            <div class="row">
+                <!-- Reviews & Ratings Section -->
+                <div class="col-lg-7 col-md-12 mb-4">
+                    <div class="reviews-box shadow rounded p-4">
+                        <h3 class="section-title">Customer Reviews & Ratings</h3>
+                        
+                        <!-- Existing Reviews -->
+                        <div id="reviewsList">
+                            <br>
+                            <div class="review">
+                                <p><strong>Arun:</strong> Excellent service and great selection of products!</p>
+                                <span class="rating">Rating: ⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <br>
+                            <div class="review">
+                                <p><strong>Deepak:</strong> Quick delivery and very helpful staff.</p>
+                                <span class="rating">Rating: ⭐⭐⭐⭐☆</span>
+                            </div>
+                            <br>
+                        </div>
+
+                        <!-- Review Submission Form -->
+                        <form id="reviewForm" class="mt-4">
+                            <div class="mb-3">
+                                <label for="userName" class="form-label">Your Name:</label>
+                                <input type="text" id="userName" class="form-control" placeholder="Enter your name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="userReview" class="form-label">Leave a Review:</label>
+                                <textarea id="userReview" class="form-control" rows="3" placeholder="Write your review here..."></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="userRating" class="form-label">Rating:</label>
+                                <select id="userRating" class="form-select">
+                                    <option value="5">⭐⭐⭐⭐⭐</option>
+                                    <option value="4">⭐⭐⭐⭐</option>
+                                    <option value="3">⭐⭐⭐</option>
+                                    <option value="2">⭐⭐</option>
+                                    <option value="1">⭐</option>
+                                </select>
+                            </div>
+                            <button type="button" id="submitReview" class="btn btn-primary">Submit Review</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Location Section -->
+                <div class="col-lg-5 col-md-12">
+                    <div class="location-box shadow rounded p-4 mb-3">
+                        <h3 class="section-title">Shop Location</h3>
+                        <div id="shopMap" class="map-container mb-3">
+                            <!-- Embedded Google Map -->
+                            <iframe 
+                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3497.5691411357693!2d77.5015095753405!3d28.76227837559424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf5d3026d68dd%3A0x4c7ac2fba538ec59!2sHariom%20Electronics%20-%20Muradnagar%20%7C%20Ghaziabad!5e0!3m2!1sen!2sin!4v1732552909886!5m2!1sen!2sin" 
+                                width="100%" 
+                                height="250" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                    <!-- Address Box -->
+                    <div class="address-box shadow rounded p-4 mb-3">
+                        <h4 class="section-subtitle">Gym Address</h4>
+                        <p>240 MAIN RAILWAY STATION ROAD, Muradnagar, Uttar Pradesh 201206</p>
+                    </div>
+                    <!-- Social Media Box -->
+                    <div class="social-media-box shadow rounded p-4">
+                        <h4 class="section-subtitle">Follow Us</h4>
+                        <div class="social-icons">
+                            <a href="https://www.instagram.com" target="_blank" class="social-icon">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com" target="_blank" class="social-icon">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="https://www.twitter.com" target="_blank" class="social-icon">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h4 class="footer-title">About Us</h4>
+                    <p class="footer-text">
+                        LocalGuide is your trusted companion for finding the best local businesses. Explore, connect, and enjoy personalized recommendations for shops near you.
+                    </p>
+                </div>
+
+                <!-- Quick Links Section -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/index.html">Categories</a></li>
+                        <li><a href="/contact.html">About</a></li>
+                        <li><a href="/contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="col-lg-4 col-md-12">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <p class="footer-text">
+                        <i class="fas fa-phone-alt"></i> +123 456 7890
+                    </p>
+                    <p class="footer-text">
+                        <i class="fas fa-envelope"></i> support@localguide.com
+                    </p>
+                    <p class="footer-text">
+                        <i class="fas fa-map-marker-alt"></i> Ghaziabad,201206
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com" target="_blank" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank" class="social-icon">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.twitter.com" target="_blank" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="footer-bottom-text">
+                        © 2024 LocalGuide. All rights reserved. | Designed with ❤️ by LocalGuide Team
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
+       
+    </script>
+    <script src="/script.js"></script>
+    <!-- firebase -->
+    <script type="module">
+        // Import the required Firebase functions
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+        import { getDatabase, get, ref, push, set } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+    
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAkDoKasc-QaA5tUwDiUQ6qHDZNDdHmbRI",
+            authDomain: "fir-30f8b.firebaseapp.com",
+            databaseURL: "https://fir-30f8b-default-rtdb.firebaseio.com",
+            projectId: "fir-30f8b",
+            storageBucket: "fir-30f8b.appspot.com",
+            messagingSenderId: "541118137726",
+            appId: "1:541118137726:web:349f6448401b820c2b9f2f"
+        };
+    
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+    
+//         // Handle form submission
+        document.getElementById("notificationForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevent page refresh
+
+//             // Reference to the database
+        const dbRef = ref(database, "notifications");
+    
+//             // Get user input
+            const userName = document.getElementById('user').value;
+            const userNumber = document.getElementById('number').value;
+            const userQuery = document.getElementById('query').value;
+
+
+            // Push data to Firebase
+            const newNotificationRef = push(dbRef);
+            set(newNotificationRef, {
+                name: userName,
+                number: userNumber,
+                query: userQuery,
+                timestamp: new Date().toISOString("")
+            })
+            .then(() => {
+                // Show success message
+                const successMessage = document.getElementById("successMessage");
+                successMessage.style.display = "block";
+                setTimeout(() => {
+                    successMessage.style.display = "none";
+                }, 3000);
+    
+                // Reset the form
+                document.getElementById("notificationForm").reset();
+            })
+            .catch((error) => {
+                console.error("Error saving data:", error);
+            });
+            
+        });
+    </script>
+</body>
+</html>

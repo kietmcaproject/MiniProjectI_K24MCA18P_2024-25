@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronics Category - LocalGuide</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Global Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Header Section */
+        .navbar {
+            /* background-color: #f94144;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); */
+            /* background: linear-gradient(90deg, #6a879434, #95bee2); */
+            background: linear-gradient(90deg, #aed6e734, #95bee2);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* height: 100px; */
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #737870;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f3722c;
+        }
+
+        /* Heading Section */
+        .heading-section {
+            text-align: center;
+            padding: 50px 20px;
+            /* background: linear-gradient(to right, #f94144, #f9844a, #f9c74f); */
+            background: linear-gradient(90deg, #2d424a34, #4187b3);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #534747;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .heading-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+
+        /* Fade-in animation for heading */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Medical Shops Section */
+        .medical-shops {
+            padding: 50px 20px;
+        }
+
+        .shop-box {
+            background: #fff;
+            border: 1px solid #eaeaea;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .shop-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Fade-in animation for shop boxes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .shop-box img {
+            width: 100%;
+            object-fit: cover;
+            height: 200px;
+        }
+
+        .shop-details {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .shop-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #754327;
+            margin-bottom: 5px;
+        }
+
+        .shop-location {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+          /* Footer Section */
+    .footer-section {
+        /* background: linear-gradient(to right, #f8961e, #f3722c); */
+        background: linear-gradient(90deg, #277da1, #4d908e);
+        color: white;
+        padding: 40px 0;
+        position: relative;
+    }
+
+    .footer-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #ffffff;
+        position: relative;
+    }
+
+    .footer-title::after {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 2px;
+        background: #f9c74f;
+        margin-top: 5px;
+    }
+
+    .footer-text {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: #ffffff;
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+
+    .footer-links li a {
+        color: #f9f9f9;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+    }
+
+    .footer-links li a:hover {
+        color: #f9c74f;
+        text-decoration: underline;
+    }
+
+    .footer-divider {
+        border-color: rgba(255, 255, 255, 0.3);
+        margin: 20px 0;
+    }
+
+    .footer-bottom-text {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .social-icons {
+        margin-top: 15px;
+        display: flex;
+        gap: 15px;
+    }
+
+    .social-icon {
+        display: inline-block;
+        font-size: 1.5rem;
+        color: #f3722c;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-icon:hover {
+        transform: scale(1.2);
+        color: #f9c74f;
+    } */
+
+    /* Animations */
+    .footer-section {
+        animation: fadeInUp 1s ease-in-out;
+    }
+
+
+        .nav-link:hover{
+            color: #bb5c2a;
+        }
+
+
+       
+
+
+        /* navigation category */
+        /* Navigation Bar Section */
+        .navigation-bar {
+            background: linear-gradient(90deg, #2d424a34, #022e4a);
+            padding: 10px 0;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navigation-bar ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .navigation-bar ul li a {
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .navigation-bar ul li a:hover {
+            color: #f94144;
+        }
+
+
+       
+    </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="#">LocalGuide</a>
+        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                
+                
+                <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Navigation Bar -->
+<div class="navigation-bar">
+    <ul>
+        <li><a href="/category/medicaal/medicallist.html">Medical</a></li>
+        <li><a href="/category/gym/gymimage/gymlistt.html">Gym</a></li>
+        <li><a href="/category/grocery/grocerylist.html">Grocery</a></li>
+        <li><a href="/category/salon/salonlist.html">Salon</a></li>
+        <li><a href="/category/electronic/electronicsimage/electronics.html">Electronics</a></li>
+        <li><a href="/category/hardware/hardwarelist.html">Hardware</a></li>
+    </ul>
+</div>
+
+<!-- Heading Section -->
+<section class="heading-section">
+    <h1>Medical Shops</h1>
+</section>
+
+<!-- Medical Shops Section -->
+<section class="medical-shops">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Shop Box Example -->
+            <div class="col-md-4">
+                <div class="shop-box">
+                    <img src="./medicalimages/chaduhary2.jpg" alt="Medical Shop">
+                    <div class="shop-details">
+                        
+
+                        <h3 class="shop-name"><a href="./Chaudhary.html" class="nav-link">Chaudhary Medical Store</a></h3>
+                        <p class="shop-location">Metro piller no 543, shop no 6,opposite ITS rapid,Muradnagar, UP, 201206</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="shop-box">
+                    <img src="./medicalimages/Pradeep pharmacy.jpg" alt="Medical Shop">
+                    <div class="shop-details">
+                        <h3 class="shop-name"><a href="#" class="nav-link">Pradeep Pharmacy</a></h3>
+                        <p class="shop-location">NH58, near KIET COLLEGE, muradnagar ,uttar Pradesh 201206</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="shop-box">
+                    <img src="./medicalimages/tyagimedical.jpg" alt="Medical Shop">
+                    <div class="shop-details">
+                        <h3 class="shop-name"><a href="#" class="nav-link">Tyagi Medical Store</a></h3>
+                        <p class="shop-location">QG73+5MR, GT Rd, near allahbad bank, New defence Colony, Basantpur Saitli, UP, 201206.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="shop-box">
+                    <img src="./medicalimages/surajmedical.jpg" alt="Medical Shop">
+                    <div class="shop-details">
+                        <h3 class="shop-name"><a href="#" class="nav-link">Suraj Medical Store</a></h3>
+                        <p class="shop-location"> Kuti Rd, Ganga Vihar Colony , Muradnagar, Ukhlarsi, UP, 201206</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="shop-box">
+                    <img src="./medicalimages/jav.jpg" alt="Medical Shop">
+                    <div class="shop-details">
+                        <h3 class="shop-name"><a href="#" class="nav-link">Nav Jeevan Medical Store</a></h3>
+                        <p class="shop-location">QG63+HX6, Muradnagar Railway Road New Defence Colony Near to SBI Bank Muradnagar, Branch, Ghaziabad, Uttar Pradesh 201206</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="shop-box">
+                    <img src="./medicalimages/gupta.jpg" alt="Medical Shop">
+                    <div class="shop-details">
+                        <h3 class="shop-name"><a href="#" class="nav-link">Gupta Medical Store</a>
+                            
+                            
+
+                        </h3>
+                        <p class="shop-location">6, Bamba Market, Ghaziabad, Uttar Pradesh 201206</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Repeat for other shops -->
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<!-- Footer Section -->
+<footer class="footer-section">
+    <div class="container">
+        <div class="row">
+            <!-- About Section -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h4 class="footer-title">About Us</h4>
+                <p class="footer-text">
+                    LocalGuide is your trusted companion for finding the best local businesses. Explore, connect, and enjoy personalized recommendations for shops near you.
+                </p>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="/index.html">Home</a></li>
+                    
+                    <li><a href="/contact.html">About</a></li>
+                    
+
+
+                    <li>><a href="/category/medicaal/medicallist.html">Medical</a></li>
+                    <li><a href="/category/gym/gymimage/gymlistt.html">Gym</a></li>
+                    <li><a href="/category/grocery/grocerylist.html">Grocery</a></li>
+                    <li><a href="/category/salon/salonlist.html">Salon</a></li>
+                    <li><a href="/category/electronic/electronicsimage/electronics.html">Electronics</a></li>
+                     <li><a href="/category/hardware/hardwarelist.html">Hardware</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="col-lg-4 col-md-12">
+                <h4 class="footer-title">Contact Us</h4>
+                <p class="footer-text">
+                    <i class="fas fa-phone-alt"></i> +91 9876543210
+                </p>
+                <p class="footer-text">
+                    <i class="fas fa-envelope"></i> support@localguide.com
+                </p>
+                <p class="footer-text">
+                    <i class="fas fa-map-marker-alt"></i> Ghaziabad,201206
+                </p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com" target="_blank" class="social-icon">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="row">
+            <div class="col-12 text-center">
+                <p class="footer-bottom-text">
+                    © 2024 LocalGuide. All rights reserved. | Designed with ❤️ by LocalGuide Team
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
